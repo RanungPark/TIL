@@ -188,8 +188,8 @@ reversed 속성으로 역으로 표현할수있다.
 -controls 속성 : 음악 재생 도구를 표시할 것인지 지정, 재생 도구의 외관은 브라우저마다 차이가 있다.
 -source 태그 : 파일 형식의 차이 문제를 해결 할 수 있다. type 속성 생략가능
 <source src="assets/audio/Kalimba.mp3"> --> <source src="assets/audio/Kalimba.ogg">
-크롬, 파이어폭스, 오페라는 MP3 ,Wav ,Ogg 모두 지원하지만
-사파리는 Ogg를 지원하지 않고 / 인터넷익스플로어 MP3만 지원한다.
+크롬(CR), 파이어폭스(FF), 오페라(OP)는 MP3 ,Wav ,Ogg 모두 지원하지만
+사파리(SP)는 Ogg를 지원하지 않고 / 인터넷익스플로어(IE) MP3만 지원한다.
 
 [비디오]
 -video 태그 : audio와 같은 설명
@@ -203,5 +203,110 @@ reversed 속성으로 역으로 표현할수있다.
 -width 속성 : 동영상의 너비를 지정
 -height 속성 : 동영상의 높이를 지정
 -source 태그 : audio와 같이 파일의 형식의 차이를 해결 
-크롬, 파이어폭스, 오페라는 모두 지원 (MP4, WebM, Ogv)
-사파이와 인터넷익스플로어는 MP4만 지원
+크롬(CR), 파이어폭스(FF), 오페라(OP)는 모두 지원 (MP4, WebM, Ogv)
+사파이(SF)와 인터넷익스플로어(IE)는 MP4만 지원
+
+
+▶▶▶8장
+[form]
+-form 태그 : 사용자가 입력하는 데이터를 수집하기 위해 사용되며 자식태그에 입력 양식 태그를 포함할수 있다.
+-action 속성 : 입력 데이터가 전송될 URL 지정
+-method 속성 : get/post중에서 입력데이터 전달 방식 지정
+[get방식]
+-전송 URL에 입력 데이터를 쿼리스트링으로 보내는 방식
+(쿼리 스트링은 URL주소 끝에 파라미터로 포함되어 전송하는것으로 
+"?"를 붙이고 그다음 변수명1=값1&변수명2=값2 형식으로 이어 붙인다)
+-"?"를 통해 데이터의 시작을 알려주고 , key-value형태의 데이터를 추가한다 1개이상일때 '&'로 구분한다
+-URL에 전송 데이터가 모두 노출되기 때문에 보안에 문제가 있으며 전송할 수 있는 데이터의 한계가 있다
+-GET 요청은 캐시가 가능하다
+-GET 요청은 브라우저 히스토리에 남는다
+-GET 요청은 북마크가 될 수 있다
+-GET 요청은 데이터를 요청할때만 사용 된다
+
+[post방식]
+-Request Body에 담아 보내는 방식이다
+-URL에 전송 데이터가 모두 노출되지 않지만 GET에 비해 속도가 느리다
+-POST 요청은 개시되지 않는다
+-POST 요청은 브라우저 히스토리에 남지 않는다
+-POST 요청은 북마크 되지 않는다
+-POST 요청은 데이터 길이에 제한이 없다
+
+둘의 차이점
+-사용목적 : GET은 서버의 리소스에서 데이터를 요청할 때, POST는 서버 리소스를 새로 생성하거나
+업데이트할 때 사용한다
+-요청에 body 유무 : GET은 URL 파라미터에 요청하는 데이터를 담아 보내기 때문에 HTTP 메시지에 body가 없다
+POST는 body에 데이터를 담아 보내기 때문에 당연히 HTTP 메시지에 body가 존재한다
+-멱등성 : GET요청은 멱등성이고(연산을 여러 번 적용하더라도 결과가 달라지지 않는다)
+POST는 멱등성이 아니다 (POST는 요청이 발생하면 서버가 변경될 수 있다.)
+
+-name 속성 : 폼(form)이 제출된 후 서버에서 폼 데이터(form data)를 참조하기 위해 사용되거나 js에서 참조하기 위해 사용
+
+[input]
+-input 태그 : form 태그중 가장 중요한 태그로 사용자로부터 데이터를 입력받기 위해 사용된다. 
+ajax(비동기)를 사용시 form태그 내에 존재하지 않아도 된다
+-type 속성 : 다양한 종류중 구별해준다.
+서버에 전송되는 데이터는 name어트리뷰트를 키로, value어트리뷰트를 값으로 하여 key=value의 형태로 전송한다.
+■ type 어트리뷰트 ■
+-------------------------------------------------------------------------------------
+button	버튼 생성
+checkbox	checkbox 생성
+color	컬러 선택 생성
+date	date control (년월일) 생성
+datetime-local	지역 date & time control (년월일시분초) 생성
+email	이메일 입력 form 생성. subumit 시 자동 검증한다.
+file	파일 선택 form 생성
+hidden	감추어진 입력 form 생성
+image	이미지로 된 submit button 생성
+month	월 선택 form 생성
+number	숫자 입력 form 생성   -min 속성 : 최소 -max : 최대 -step : 간격
+password	password 입력 form 생성
+radio	radio button 생성
+range	범위 선택 form 생성     -min 속성 : 최소 -max : 최대 -step : 간격
+reset	초기화 button 생성
+search	검색어 입력 form 생성	
+submit	제출 button 생성
+tel	전화번호 입력 form 생성
+text	텍스트 입력 form 생성
+time	시간 선택 form 생성
+url	url 입력 form 생성	
+week	주 선택 입력 form 생성
+-------------------------------------------------------------------------------------
+
+[select]
+-select 태그 : 다수의 리스트에서 다수의 아이템을 선택할수 있다.
+-option 태그 : select의 자식태그로 리스트에 들어간다.
+-optgroup 태그 : option 태그를 그룹화한다.
+---------select 속성------------
+-size 속성 : 보여지는 아이템 개수
+-multiple 속성 : 복수 선택이 가능 (속성값없음)
+-required 속성 : 선택지에서 반드시 선택을 해야만 하며 선택하지 않으면 선택하라는 메세지창이 생김
+-disabled 속성 : 선택을 막아버리는 속성
+-name 속성 :                      <----
+--------option 속성-------------      |
+-value 속성 :                     <----
+name에 value값을 대입하여 서버에 전송한다 name은 키로 value를 값으로 하는 형태 name=value
+
+[textarea]
+-textarea 태그 : 여러줄의 글자를 입력할때 사용
+-rows 속성 : 행(세로)크기 지정
+-cols 속성 : 열(가로)크기 지정
+-placeholder 속성 : 안내 문구 넣기
+-readonly 속성 : 읽기만 가능
+
+[button]
+-button 태그 : input에서 type이 button인것과 다르게 콘텐츠에 텍스트나 이미지를 사용할수 있다.
+-type 속성 : "button", "reset", "submit"이 있다
+-"button" : 클릭할수 있는 버튼임을 명시함
+-"reset" : 폼 데이터를 초기값으로 리셋하는 리셋 버튼을 명시함
+-"submit" : 폼 데이터를 제출하는 제출 버튼임을 명시함
+
+[fieldset/legend]
+-fieldset 태그 : 입력한 양식을 그룹화 해줌
+-legend 태그 : fieldset 제목을 정의해줌 fieldset의 자식태그
+
+
+▶▶▶9장
+공간을 분할할 수 있는 태는 div, span, table등이 있는데 현제는 모던 웹에서는 레이아웃을 구성할때 table을 사용하지 않고
+div를 주로 사용한다 div는 의미론적으로 의미를 갖지 않아 시맨틱 태그를 사용하는것이 더 나은 방법이다 
+시맨틱 태그 IE(인터넷익스플로어)에서는 작동하지 않는다
+공간분할 태그는 컨테이너 역활을 한다 div는 블록 레벨요소이고 span은 인라인 레벨요소이다
