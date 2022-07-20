@@ -188,11 +188,11 @@ HTML에서 Box는 콘텐츠(content), 패딩(padding), 테두리(border), 마진
 - 테두리의 모서리를 둥글게 표현하도록 지정한다. 4방향 모두 가능하다
 - 프로퍼티 값은 크기단위를 사용한다
 - 하나 혹은 두개의 반지름을 설정하여 각각의 모서리 굴곡을 설정할 수 있기 때문에 원 혹은 타원의 모양을 정의가 가능하다
-- 각각의 모서리를 개별적으로 설정가능
+- 각각의 모서리를 개별적으로 설정가능<br>
 ![](border-radius1.PNG)
-- 두개의 반지름을 지정하여 타원형 둥근 모서리 설정가능
+- 두개의 반지름을 지정하여 타원형 둥근 모서리 설정가능<br>
 ![](border-radius2.PNG)
-- 각각의 모서리에 타원형 둥근 모서리 축약 설정 가능
+- 각각의 모서리에 타원형 둥근 모서리 축약 설정 가능<br>
 ![](border-radius3.PNG)
 
 ### border
@@ -200,4 +200,43 @@ boder 프로퍼티는 border-width, border-style, border-color를 한번에 할�
 ## border-sizing
 - content-box : width,height 프로퍼티 값은 content 영역을 의미한다 (기본값)
 - border-box : content영역에 padding, border까지 포함된 값을 의미한다
+# 5장 display, visibility, opacity 프로퍼티
+## display 프로퍼티
+display 프로퍼티는 layout 정의에 자주 사용되는 중요한 프로퍼티이다
+- block : block 특성을 가지는 요소로 지정
+- inline : inline 특성을 가지는 요소로 지정
+- inline-block : inline-block 특성을 가지는 요소로 지정
+- none : 해당요소를 화면에 표시하지 않는다
+### block 레벨 요소
+#### block 특성을 가지는 요소의 특징
+- 항상 새로운 라인에서 시작한다
+- 화면 크기 전체의 가로폭을 차지한다
+- width, height, margin, padding 프로퍼티 지정이 가능하다
+- block 레벨 요소 내에 inline 레벨 요소를 포함할 수 있다
+- block 레벨 요소 예 : div, h1~h6, p, 리트스(ol,ul,li), hr, table, form 등
+### inline 레벨 요소
+#### inline 특성을 가지는 요소의 특징
+- 새로운 라인에서 시작하지 않으면 문장의 중간에 들어갈 수 있다. 즉 줄을 바꾸지 않고 다른 요소와 함께 한 행에 위치한다
+- content의 너비만큼 가로폭을 차지한다
+- width, height, margin-top, margin-bottom 프로퍼티 지정할 수 없다. 상,하 여백은 line-height로 지정한다
+- inline 레벨 요소 뒤에 공백(엔터, 스페이스 등)이 있는 경우 정의하지 않은 space가 자동 지정된다
+- inline 레벨 요소 내에 block 레벨 요소를 포함할 수 없다. inline 레벨 요소는 일반적으로 block 레벨 요소에 포함되어 사용된다
+- inline 레벨 요소 예 : span, a, strong, img, br, input, select, textarea, button 등
+### inline-block 레벨 요소
+#### inline-block 특성을 가지는 요소의 특징
+- 기본적인 inline 레벨 요소와 흡사하게 줄을 바꾸지 않고 다른 요소와 함께 한 행에 위치시킬 수 있다
+- block 레벨 요소처럼 width, height, margin, padding 프로퍼티를 모두 정의할 수 있다
+  상,하 여백을 margin과 line-hegint 두ㅏ지 프로퍼티 모두를 통해 제어할 수 있다
+- content의 너비 만큼 가로폭을 차지한다.
+- inline-block 레벨 요소 뒤에 공백이 있을 경우 정의하지 않은 space가 자동 지정된다
+## visibility 프로퍼티
+visibility 프로퍼티는 요소를 보이게 할 것인지를 정의한다. 요소의 렌더링 여부를 결정한다
+- visible : 해당 요소를 보이게 한다
+- hidden : 해당 요소를 보이지 않게 한다 `display:none;`은 해당 요소의 공간까지 사라지게 하지만
+  `visibility : hidden;`은 해당 요소의 공간은 사라지지 않고 남아 있게 된다
+- collapse : table 요소에 사용하며 행이나 열을 보이지 않게 한다
+- none : table 요소의 row나 column을 보이지 않게 한다
+## opacity 프로퍼티
+opacity 프로퍼티는 요소의 투명도를 정의한다. 0.0~1.0의 값을 입력하며 0.0은 투명, 1.0은 불투명을 의미한다
+
 
