@@ -106,7 +106,7 @@
   배수 단위로 상대 단위이다. 1em은 요소에 지정된 사이즈와 같고 2em은 요소에 지정된 사이즈의 2배이다
   폰트 사이즈 설정이나 콘텐츠를 포함하는 컨테이너의 크기 설정에 사용하면 상대적인 설정이 가능하여 편리하다
   중첩된 자식 요소에 em을 지정하면 모든 자식 요소의 사이즈에 영향을 미친다
-![](nested%20children.jpg)
+![](nested_children.jpg)
 ### rem
   rem은 최상위 요소의 사이즈를 기준으로 삼는다. rem의 r은 root를 의미한다
   사용자가 브라우저의 기본 폰트 크기를 변경하더라도 이에 따라 웹 사이트의 레이아웃을 적절히 저정할 수 있다는 장점이 있다
@@ -128,7 +128,7 @@
 
 ## 색상 표현 단위
 색상을 표현할수 있는 키워드 리스트 [](https://www.w3.org/TR/css-color-3/) 참조
-더욱 다양한 색상을 표현하기 위해 생상 표현 단위를 사용할수 있는데 이때 참조 [](https://htmlcolorcodes.com/)
+더욱 다양한 색상을 표현하기 위해 생상 표현 단위를 사용할수 있는데 이때 참조 ()[https://htmlcolorcodes.com/]
 - HEX 코드 단위 : #000000
 - RGB(red,green,blue) : rgb(255,255,0)
 - RGBA (Red, Green, Blue, Alpha/투명도) :	rgba(255, 255, 0, 1)
@@ -138,3 +138,60 @@
 
 # 4장 박스모델
 HTML에서 Box는 콘텐츠(content), 패딩(padding), 테두리(border), 마진(margin)으로 구성되어있다.
+![](BoxModel.PNG)
+브라우저는 박스 모델의 크기와 프로퍼티, 위치를 근거하여 렌더링을 실행한다
+웹디자인은 콘텐츠를 담을 박스 모델을 정의하고 CSS 프로퍼티를 통해 스타일과 위치 및 정렬을 지정하는 것이라 할수 있다
+- Content : 요소의 텍스트나 이미지 등의 실제 내용이 위치하는 영역이다. width, height 프로퍼티를 갖는다.
+- Padding : 테두리 안쪽에 위치한 요소의 내부 여백 영역으로 padding 프로퍼티 값은 패딩 영역의 두께를 의미한다
+  기본적색은 투명이다. 요소에 적용된 배경의 컬러, 이미지는 패딩 영역까지 적용된다
+- Border : 테두리 영역으로 border 프로퍼티 값은 테두리의 두께를 의미한다
+- Margin : 테두리(Border)바깥에 위치하는 요소의 외부 여백 영역으로 margin 프로퍼티 값은
+  마진 영역의 두께를 의미하고 기본족으로 투명하며 배경색을 지정할 수 없다
+
+## width/height 프로퍼티
+- 요소의 너비와 높이를 지정하기 위해 사용된다 이때 지정되는 요소의 너비와 높이는 콘텐츠 영역을 대상으로 한다
+- width/height로 지정한 콘첸츠영역 보다 실제 콘텐츠가 크면 콘텐츠 영역을 넘치게 된다
+  이때 `overflow:hidden;`을 지정하면 넘치는 콘텐츠를 감출 수 있다
+- 박스의 전체 크기의 너비는 콘텐츠의 너비와 padding, border, margin들의 너비를 모두 합친값이고
+  높이는 모든 높이를 합친 값이다
+- 이 프로퍼티의 초기값은 auto로 브라우저의 상황에 따라 계산된다
+  block요소의 경우 width는 부모요소의 100%, height는 콘텐츠의 높이(+약건의 여분)가 지정된다
+- 명시적으로 지정하기 위해 px,%등의 크기단위를 사용한다
+
+## margin/padding 프로퍼티
+- margin/ padding프로퍼티는 content의 4개 방향에 대하여 지정이 가능하다
+![](margin-padding.PNG)
+### margin/padding 값의 개수별 지정방식 
+- 4개의 값을 지정하였을때 : matgin:??px!!px@@px##px => ?? = top / !! = right / @@ = bottom / ## = left 
+- 3개의 값을 지정하였을때 : matgin:??px!!px@@px => ?? = top / !! = right,left / @@ = bottom
+- 2개의 값을 지정하였을때 : matgin:??px!!px => ?? = top,bottom / !! = right,left
+- 1개의 값을 지정하였을때 : matgin:??px => ?? = top,right,left,bottom 
+
+- margin 프로퍼티에 auto 키워드를 설정하면 해당 요소는 브라우저 중앙에 위치 시킬 수 있다
+- max-width 프로퍼티를 사용하면 요소의 너비가 브라우저 너비보다 크면 스크롤바가 만들어진다
+
+## border 프로퍼티 
+()[https://developer.mozilla.org/ko/docs/Web/CSS/border-width]참조
+### border-style
+- solid : 실선 / dotted : 점선 / none : 선없는 등등
+- 4개의 방향에 대하여 지정할수 있다
+### border-width
+- 프로퍼티의 테두리의 두께를 지정한다. 4개의 방향을 지정할수 있다
+- 크기단위가 사용 가능하다 (%,px,em,rem)
+- thin : 얇은 테두리 / medium : 중간 테두리 / thick : 굵은 테두리
+- border-width는 border-style과 같이 사용하지 않으면 안된다(border-style이 선언되어야한다)
+### border-color
+- 테두리의 색상을 지정한다 4방향 지정 가능하다
+- border-color는 border-style과 같이 사용하지 않으면 안된다(border-style이 선언되어야한다)
+### border-radius
+()[https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius]참조
+- 테두리의 모서리를 둥글게 표현하도록 지정한다. 4방향 모두 가능하다
+- 프로퍼티 값은 크기단위를 사용한다
+- 하나 혹은 두개의 반지름을 설정하여 각각의 모서리 굴곡을 설정할 수 있기 때문에 원 혹은 타원의 모양을 정의가 가능하다
+
+### border
+boder 프로퍼티는 border-width, border-style, border-color를 한번에 할수있다 (short-hand)
+## border-sizing
+- content-box : width,height 프로퍼티 값은 content 영역을 의미한다 (기본값)
+- border-box : content영역에 padding, border까지 포함된 값을 의미한다
+
