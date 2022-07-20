@@ -128,7 +128,7 @@
 
 ## 색상 표현 단위
 색상을 표현할수 있는 키워드 리스트 [](https://www.w3.org/TR/css-color-3/) 참조
-더욱 다양한 색상을 표현하기 위해 생상 표현 단위를 사용할수 있는데 이때 참조 [](https://htmlcolorcodes.com/)
+더욱 다양한 색상을 표현하기 위해 생상 표현 단위를 사용할수 있는데 이때 참조 <https://htmlcolorcodes.com/>
 - HEX 코드 단위 : #000000
 - RGB(red,green,blue) : rgb(255,255,0)
 - RGBA (Red, Green, Blue, Alpha/투명도) :	rgba(255, 255, 0, 1)
@@ -139,7 +139,7 @@
 # 4장 박스모델
 HTML에서 Box는 콘텐츠(content), 패딩(padding), 테두리(border), 마진(margin)으로 구성되어있다.
 브라우저는 박스 모델의 크기와 프로퍼티, 위치를 근거하여 렌더링을 실행한다
-웹디자인은 콘텐츠를 담을 박스 모델을 정의하고 CSS 프로퍼티를 통해 스타일과 위치 및 정렬을 지정하는 것이라 할수 있다
+웹디자인은 콘텐츠를 담을 박스 모델을 정의하고 CSS 프로퍼티를 통해 스타일과 위치 및 정렬을 지정하는 것이라 할수 있다<br>
 ![](BoxModel.PNG)
 - Content : 요소의 텍스트나 이미지 등의 실제 내용이 위치하는 영역이다. width, height 프로퍼티를 갖는다.
 - Padding : 테두리 안쪽에 위치한 요소의 내부 여백 영역으로 padding 프로퍼티 값은 패딩 영역의 두께를 의미한다
@@ -171,7 +171,7 @@ HTML에서 Box는 콘텐츠(content), 패딩(padding), 테두리(border), 마진
 - max-width 프로퍼티를 사용하면 요소의 너비가 브라우저 너비보다 크면 스크롤바가 만들어진다
 
 ## border 프로퍼티 
-[](https://developer.mozilla.org/ko/docs/Web/CSS/border-width)참조
+<https://developer.mozilla.org/ko/docs/Web/CSS/border-width>참조
 ### border-style
 - solid : 실선 / dotted : 점선 / none : 선없는 등등
 - 4개의 방향에 대하여 지정할수 있다
@@ -184,7 +184,7 @@ HTML에서 Box는 콘텐츠(content), 패딩(padding), 테두리(border), 마진
 - 테두리의 색상을 지정한다 4방향 지정 가능하다
 - border-color는 border-style과 같이 사용하지 않으면 안된다(border-style이 선언되어야한다)
 ### border-radius
-[](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)참조
+<https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius>참조
 - 테두리의 모서리를 둥글게 표현하도록 지정한다. 4방향 모두 가능하다
 - 프로퍼티 값은 크기단위를 사용한다
 - 하나 혹은 두개의 반지름을 설정하여 각각의 모서리 굴곡을 설정할 수 있기 때문에 원 혹은 타원의 모양을 정의가 가능하다
