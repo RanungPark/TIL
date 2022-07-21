@@ -200,6 +200,8 @@ boder 프로퍼티는 border-width, border-style, border-color를 한번에 할�
 ## border-sizing
 - content-box : width,height 프로퍼티 값은 content 영역을 의미한다 (기본값)
 - border-box : content영역에 padding, border까지 포함된 값을 의미한다
+
+
 # 5장 display, visibility, opacity 프로퍼티
 ## display 프로퍼티
 display 프로퍼티는 layout 정의에 자주 사용되는 중요한 프로퍼티이다
@@ -240,3 +242,62 @@ visibility 프로퍼티는 요소를 보이게 할 것인지를 정의한다. �
 opacity 프로퍼티는 요소의 투명도를 정의한다. 0.0~1.0의 값을 입력하며 0.0은 투명, 1.0은 불투명을 의미한다
 
 
+# 6장 백그라운드
+백그라운드는 해당 요소의 배경으로 이미지 또는 색상을 정의한다
+## background-image 프로퍼티
+요소에 배경 이미지를 지정한다
+## background-repeat 프로퍼티
+배경이미지의 반복을 지정한다
+- repeat : 프로퍼티의 기본값
+- repeat-x : x축으로만 배경 이미지를 반복할 경우
+- repeat-y : y축으로만 배경 이미지를 반복할 경우
+- no-repeat : 반복 출력을 멈추고 싶은 경우
+**background-image에 복수개의 이미지를 설정할 경우 먼저 설정된 이미가 전면에 출력된다 이때 background-repeat도 같은 순으로 순서에 맞게 적용된다**
+## background-size 프로퍼티
+배경 이미지의 사이즈를 지정한다<br>
+첫번째 값은 width, 두번째 값은 height를 의미한다<br>
+하나의 값만 지정한경우 지정한 값은 width를 의미하게 되며 height는 auto로 지정된다
+- px값 지정 : 배경이미지 크기가 지정된 px값 그대로 설정된다
+- %값 지정 : 배경이미지 크기가 지정된 %값에 비례하여 설정된다.
+  화면을 줄이거나 늘리면 배경이미지의 크기도 따라서 변경되어 찌그러지는 현상이 나타난다
+- cover 지정 : 배경이미지의 크기 비율을 유지한 상태에서 부모 요소의 width,height 중 큰값에 배경이미지를 맞춘다.
+  따라서 이미지의 일부가 보이지 않을 수 있다
+- contain 지정 : 배경이미지의 크기 비율을 유지한 상태에서 부모 요소의 영역에 배경이미지가 보이지 않는 부분없이
+  전체가 들어 갈 수 있도록 이미지 스케일을 조정한다
+## background-attachment 프로퍼티
+일반적으로 화면을 스크롤하면 배경 이미지도 함께 스크롤 되는데 화면이 스크롤 되더라도
+ 배경 이미지는 스크롤되지 않고 고정 되어 있게 하려면 `background-attachment : fixed;` 를 지정한다
+## background-position 프로퍼티
+일반적으로 background-image는 최상단부터 이미지를 출력한다. 이때 background-position 프로퍼티를 사용하면 이미지의 좌표(xpos,ypos)를 지정 할 수 있다.<br>
+기본값은 `background-position : 0% 0%;`로 배경이미지는 우측 상단에 위치하게 된다<br>
+top, bottom, center, left, right 도 같이 사용할수 있다
+## background-color 프로퍼티
+요소의 배경색을 지정한다 색상값 또는 투명도 키워드를 지정할 수 있다
+## background Shorthand
+background: color || image || repeat || attachment || position 을 한번에 지정할수 있다<br>
+`background: #FFEE99 url("http://poiemaweb.com/img/bg/dot.png") no-repeat center;`
+
+
+# 7장 폰트와 텍스트
+## font-size 프로퍼티
+텍스트의 크기를 정의한다
+## font-family 프로퍼티
+폰트를 지정한다 컴퓨터에 해당 폰트가 설치되어 있지 않으면 적용되지 않는다<br>
+폰트는 여러 개를 동시에 지정이 가능하다. 첫번째 지정한 폰트가 클라이언트 컴퓨터에 설치되어 있지 않은 경우, 다음에 지정된 폰트를 적용한다. 따라서 마지막에 지정하는 폰트는 대부분의 OS에 기본적으로 설치되어 있는 `generic-family` 폰트(Serif, Sans-serif, Mono space)를 지정하는 것이 일반적이다.
+## font-style / font-weight 프로퍼티
+- font-style 프로퍼티는 이탤릭체의 지정(normal, italic, oblique)<br>
+- font-weight 프로퍼티는 폰트 굵기 지정(100~900/ normal/ bold/ lighter/ bolder)
+## line-height 프로퍼티
+텍스트의 높이를 지정한다. 텍스트 수직 정렬에도 응용되어 사용된다<br>
+수직 중앙정렬를 할때 부모요소와 자식요소의 height값을 일치시킨다 (부모가 박스면 height 자식이 텍스트이면 line-height)
+## font shorthand
+font : font-style(optional) font-variant(optional) font-weight(optional) font-size(mandatory) line-height(optional)font-family(mandatory)<br>
+### font-variant small-caps; 소문자를 대문자로 만든다. 단 크기는 일반 대문자에 비해 더 작다.
+## letter-spacing 프로퍼티
+글자사이의 간격을 지정한다
+## text-align 프로퍼티
+텍스트의 수평 정렬을 정의한다 (center, right, left, justify)<br>
+a태그는 inline요소 이므로 center가 적용이 안된다 이때 display:block을 지정하면 중앙정렬이 가능하다
+## text-decoration 프로퍼티
+링크의 underline을 제거할수도(none) 있고 텍스트에 underline, overline, line-through를 추갛할 수도 있다
+## white-space 프로퍼티
