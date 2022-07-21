@@ -299,5 +299,50 @@ font : font-style(optional) font-variant(optional) font-weight(optional) font-si
 텍스트의 수평 정렬을 정의한다 (center, right, left, justify)<br>
 a태그는 inline요소 이므로 center가 적용이 안된다 이때 display:block을 지정하면 중앙정렬이 가능하다
 ## text-decoration 프로퍼티
-링크의 underline을 제거할수도(none) 있고 텍스트에 underline, overline, line-through를 추갛할 수도 있다
+링크의 underline을 제거할수도(none) 있고 텍스트에 underline, overline, line-through를 추가할 수도 있다
 ## white-space 프로퍼티
+space는 공백,들여쓰기,줄바꿈을 의미한다 HTML에서 기본적으로 연속적인 공백과 들여쓰기는 한번만 실행된고 줄바꿈은 무시된다<br>
+또한 텍스트는 부모의 가로 영역을 벗어나지 않고 자동 줄바꿈 된다. white-space는 이러한 동작을 제어할수있다
+## text-overfloe 프로퍼티
+## word-wrap 프로퍼티
+## word-break 프로퍼티
+
+
+# 8장 요소의 위치 정의
+## position 프로퍼티
+요소의 위치를 정의한다, top, bottom, left, right 프로퍼티와 함께 사용하여 위치를 지정한다
+### static(기본위치)
+- static은 position 프로퍼티의 기본값으로 position 프로퍼티를 지정하지 않았을 때와 같다
+- 부모 요소 내에 자식 요소로서 존재할 떄는 부모 요소의 위치를 기준으로 배치한다
+- 이미 설정된 position을 무력화 하기 위해 사용될 수 있다
+
+### relative(상대위치)
+- static를 기준으로 좌표(top, bottom, left, right) 프로퍼티를 사용하여 위치를 이동시킨다
+- static와 relative의 차이점은 좌표 프로퍼티의 동작 여부 뿐이며 그외는 동일하게 동작한다
+
+### absolute(절대위치)
+- 부모 요소 또는 가장 가까이 있는 조상 요소(static 제외)를 기준으로 좌표 프로퍼티 만큼 이동한다
+  즉 상대위치, 절대위치, 고정위치 프로퍼티가 선언되어 있는 부모 또는 조상 요소를 기준으로 위치가 결정된다
+- 만일 부모 또는 조상 요소가 static인경우 document body를 기준으로 하여 좌표 프로퍼티를 위치하게 된다
+- absolute 선언시, block 레벨 요소의 width는 inline 요소와 같이 content에 맞게 변화되므로 적절한 width를 지정하여야 한다
+
+#### relative는 무조건 부모를 기준으로 위치한다
+#### absolute는 부모 요소의 영역을 벗어나 자유롭게 어디든 위치할 수 있다
+
+### fixed(고정위치)
+- 부모 요소와 관계 없이 브라우저의 viewport를 기준으로 좌표프로퍼티을 사용하여 위치를 이동시킨다
+- 스크롤이 되더라도 화면에서 사라지지 않고 항상 같은 곳에 위치한다
+- fixed 선언시, block 요소의 width는 inline 요소와 같이 content에 맞게 변화되므로 적절한 width를 지정하여야 한다
+
+## z-index 프로퍼티
+z-index 프로퍼티에 큰 숫자값을 지정할수록 화면 전면에 출력된다. position 프로퍼티가 static 이외인 요소에만 적용된다
+
+## overflow 프로퍼티
+자식 요소가 부모 요소의 영역을 벗어났을 때 처리 방법을 정의한다
+- visible : 영역을 벗어난 부분을 표시한다(기본값)
+- hidden : 영역을 벗어난 부분을 잘라내어 보이지 않게 한다
+- scroll : 영역을 벗어난 부분이 없어도 스크롤 표시한다(현재 대부분 브라우저는 auto과 동일하게 작동한다)
+- auto : 영역을 벗어난 부분이 있을때만 스크롤 표시한다
+#### 특정 방향으로만 스크롤을 표시하소자 할때 overflow-x또는 overflow-y를 사용한다
+
+####
