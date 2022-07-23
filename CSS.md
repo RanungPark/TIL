@@ -302,13 +302,17 @@ a태그는 inline요소 이므로 center가 적용이 안된다 이때 display:b
 링크의 underline을 제거할수도(none) 있고 텍스트에 underline, overline, line-through를 추가할 수도 있다
 ## white-space 프로퍼티
 space는 공백,들여쓰기,줄바꿈을 의미한다 HTML에서 기본적으로 연속적인 공백과 들여쓰기는 한번만 실행된고 줄바꿈은 무시된다<br>
-또한 텍스트는 부모의 가로 영역을 벗어나지 않고 자동 줄바꿈 된다. white-space는 이러한 동작을 제어할수있다
+또한 텍스트는 부모의 가로 영역을 벗어나지 않고 자동 줄바꿈 된다. white-space는 이러한 동작을 제어할수있다<br>
+프로퍼티값 : normal, nowrap, pre, pre-wrap, pre-line
 ## text-overfloe 프로퍼티
 부모 영역을 벗어난 wrapping(자동줄바꿈)이 되지 않는 텍스트의 처리 방법을 정의한다. 
 ### 조건
 1. width 프로퍼티가 지정되어 있어야 한다. 이를 위해 필요할 경우 block 레벨 요소로 변경하여야 한다.
 1. 자동 줄바꿈을 방지하려면 white-space 프로퍼티를 nowrap으로 설정한다.
 1. overflow 프로퍼티에 반드시 “visible” 이외의 값이 지정되어 있어야 한다.
+
+- clip	영역을 벗어난 텍스트를 표시하지 않는다. (기본값)
+- ellipsis	영역을 벗어난 텍스트를 잘라내어 보이지 않게 하고 말줄임표(…)를 표시한다.
 
 ## word-wrap 프로퍼티
 한 단어의 길이가 길어서 부모 영역을 벗어난 텍스트의 처리방법을 정의한다<br>
