@@ -1,37 +1,53 @@
-header{
+.container{
+  display: grid;
+  grid-template-columns: 1fr 3fr 100px;
+  grid-template-rows: 150px 3fr 20px;
+  column-gap: 10px;
+  grid-template-areas:
+		"header header header"
+		"   a    main    b   "
+		"   .     .      .   "
+		"footer footer footer"
+}
+.global-header{
   background-color: rgb(226, 226, 226);
+  overflow: hidden;
+  grid-column : 1/4;
+  grid-row : 1/2;
+  grid-area: header;
   overflow: hidden;
 }
 .photo {
   display: block;
-  width: 20vw;
-  height: 20vw;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  position: relative;
-  margin: 50px 50px;
+  float:left;
 }
 .name {
   text-align: center;
   white-space: pre-line;
-}
+  float: right;
+} 
 .name > span{
   font-size: medium;
 }
+.main { grid-area: main; }
 .education{
   width: 200px;
   height: auto;
   white-space: pre-line;
 }
-
-footer{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  background-color: rgb(226, 226, 226);
-}
-footer > input {
+.sidebar-a { grid-area: a; }
+.sidebar-b { grid-area: b; }
+.main-sidear > input {
   width: 3vw;
   height:3vw;
   border-radius: 0.5vw;
+}
+.global-footer{
+  width: 100%;
+  height: 20px;
+  background-color: rgb(226, 226, 226);
+  grid-area: footer;
 }
